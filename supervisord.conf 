@@ -1,0 +1,23 @@
+[supervisord]
+nodaemon=true
+
+[program:sshd]
+command=/usr/sbin/sshd -D
+
+
+[program:mysql]
+command=/etc/init.d/mysql start
+
+[program:keystone]
+command=/etc/init.d/keystone start
+
+[program:apache2]
+command=/bin/bash -c "source /etc/apache2/envvars && exec /usr/sbin/apache2 -DFOREGROUND"
+
+
+[program:memcached]
+command=/etc/init.d/memcached start
+
+
+
+
